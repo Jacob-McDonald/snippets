@@ -116,12 +116,6 @@ def points2plane(v, form='general', cat = False):
 
         return sol
 
-def colnorm(a):
-
-    n = np.sqrt(np.sum(np.square(a)))
-
-    return n
-
 def diff2(v):
 
     [r,c] = np.shape(v)
@@ -134,3 +128,13 @@ def diff2(v):
 
     return d
 
+def zssd(w1,w2):
+
+    w1 = w1 - np.mean(w1.flatten())
+    w2 = w2 - np.mean(w2.flatten())
+
+    m = np.square(w1-w2)
+
+    m = np.sum(m)
+
+    return m
