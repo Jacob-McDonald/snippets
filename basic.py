@@ -1,6 +1,6 @@
 import numpy as np
-from numpy import array,ones,kron,ndarray,
-from scipy.linalg import norm
+from numpy import array,ones,kron,ndarray
+import scipy.linalg as la
 
 def unit(v):
     n = norm(v, 'fro')
@@ -66,13 +66,14 @@ def proj(a, dir):
     return proj
 
 def cycle(n, index):
+
     array = np.arange(1, n + 1)
 
     index =  np.mod((index -1),n)
 
     return array[index]
 
-def points2plane(v, form='general', cat = False):
+def points2plane(v, form='general', aug = False):
     n = len(v)
 
     system_a = np.vstack(v)
@@ -101,7 +102,7 @@ def points2plane(v, form='general', cat = False):
 
     sol = np.linalg.solve(system_ac2, system_b)
 
-    if cat == False:
+    if aug == False:
 
         coeff = sol[:-1]
 
@@ -109,7 +110,7 @@ def points2plane(v, form='general', cat = False):
 
         return [coeff, c]
 
-    elif cat == True:
+    elif aug == True:
 
         if form == 'standard':
             sol[-1] = -1 * sol[-1]
@@ -122,7 +123,7 @@ def diff2(v):
 
     a = np.zeros(c)
 
-    b = diff(v)
+    b = np.diff(v)
 
     d = np.concatenate((a,b))
 
