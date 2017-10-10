@@ -67,18 +67,11 @@ def ishomog(*args):
 
     return h
 
-def isbox(*args):
-    a = args[0]
+def isbox(a):
 
     dim = a.shape
 
     h = len(np.unique(dim)) == 1
-
-    if len(args) == 2:
-
-        dim_test = args[1]
-
-        h = h and a.ndim == dim_test
 
     return h
 

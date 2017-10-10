@@ -1,4 +1,5 @@
-from numpy import array,ones,kron,ndarray
+import numpy as np
+from numpy import array,ones,kron,ndarray,
 from scipy.linalg import norm
 
 def unit(v):
@@ -114,3 +115,10 @@ def points2plane(v, form='general', cat = False):
             sol[-1] = -1 * sol[-1]
 
         return sol
+
+def colnorm(a):
+
+    n = np.sqrt(np.sum(np.square(a)))
+
+    return n
+
