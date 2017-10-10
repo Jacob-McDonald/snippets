@@ -122,3 +122,15 @@ def colnorm(a):
 
     return n
 
+def diff2(v):
+
+    [r,c] = np.shape(v)
+
+    a = np.zeros(c)
+
+    b = diff(v)
+
+    d = np.concatenate((a,b))
+
+    return d
+
