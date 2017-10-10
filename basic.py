@@ -168,3 +168,19 @@ def zncc(w1, w2):
         m = np.sum(w1*w2) / denom
 
     return m
+
+def sad(w1,w2):
+
+    m = np.abs(w1-w2)
+
+    m = np.sum(m)
+
+    return m
+
+def ssd(w1,w2):
+
+    m = np.square((w1-w2))
+
+    m = np.sum(m)
+
+    return m
