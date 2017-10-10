@@ -149,3 +149,21 @@ def zsad(w1, w2):
     m = np.sum(m)
 
     return m
+
+def zncc(w1, w2):
+
+    w1 = w1 - np.mean(w1.flatten())
+
+    w2 = w2 - np.mean(w2.flatten())
+
+    denom = np.sqrt(np.sum(np.square(w1)) * np.sum(np.square(w2)))
+
+    if denom < 1*10**-10:
+
+        m = 0
+
+    else:
+
+        m = np.sum(w1*w2) / denom
+
+    return m
